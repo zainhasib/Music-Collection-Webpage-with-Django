@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Collection | Zain</title>
+    <link rel="icon" type="image/ico" href="https://blogs-images.forbes.com/jasonevangelho/files/2012/12/Google-Music-Logo.png">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        header {
+            height: 40px;
+            background: darkblue;
+            text-align: center;
+            color: white;
+            margin-top: 0;
+        }
+        section a {
+            text-decoration: none;
+            color: black;
+        }
+        section a:hover {
+            color: red;
+        }
+        .container {
+            width: 80%;
+            margin:auto;
+        }
+        section {
+            padding-top: 40px; 
+        }
+        section img {
+            display: block;
+            margin: auto;
+            border: 5px solid black;
+        }
+        section li {
+            padding: 20px;
+            list-style: none;
+            text-align: center;
+        }
+        section li:hover {
+            background: rgb(231, 231, 231);
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>{{ album.album_title }} - {{ album.artist }}</h1>
+    </header>
+    
+    <section class="container">
+        <img src="{{ album.album_logo }}" height="200px" width="200px">
+    </section>
+
+    <section class="container">
+        <ul>
+            {% for song in songs %}
+            <a href="{{ song.song_url }}"><li>{{ song.song_title }}</li></a>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>
